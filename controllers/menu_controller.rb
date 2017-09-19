@@ -95,7 +95,7 @@ class MenuController
   def view_entry_number_n
     valid = false
 
-    if address_book.entries.length == 0
+    if @address_book.entries.count == 0
       puts "There is no entry in the address book."
       valid = true
     end
@@ -103,12 +103,12 @@ class MenuController
     while !valid
       system "clear"
       print "Enter entry number: "
-      index = gets.to_i
-      if index > 0 && index <= address_book.entries.length
-        puts address_book.entries[index - 1].to_s
+      index = gets.chomp.to_i
+      if index > 0 && index <= @address_book.entries.count
+        puts address_book.entries[index - 1]
         valid = true
       else
-        puts "You entered invalid entry number.\nThere is/are #{address_book.entries.length} entry/ies. Please re-enter entry number."
+        puts "You entered invalid entry number.\nThere is/are only #{address_book.entries.length} entry/ies. Please re-enter entry number."
       end
     end
   end
