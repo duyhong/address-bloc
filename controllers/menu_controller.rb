@@ -173,7 +173,7 @@ class MenuController
   end
 
   def detonate
-    address_book.entries.clear
+    address_book.delete_all_entries
     puts "All entries have been deleted"
    end
 
